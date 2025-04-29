@@ -27,6 +27,8 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - **Consigna:** Graficar la autocorrelación de la secuencia para 3 períodos completos y extraer conclusiones.
 - **Resultado:** El script `1_autocorrelacion.py` generó la gráfica `1_autocorrelacion.png` y el análisis en `1_autocorrelacion.txt`.
 - **Gráfico:** ![Autocorrelación](1_autocorrelacion.png)
+- **Explicación sobre los picos:**
+  Si se grafica la autocorrelación sobre una secuencia que es la repetición de la PN original (por ejemplo, 3 períodos concatenados), entonces la autocorrelación tendrá un pico en cada múltiplo del período, porque la secuencia se alinea consigo misma en esos desplazamientos. Esto es esperable y concuerda con la teoría.
 - **Conclusión:** Se observa un pico principal y valores bajos fuera de fase, cumpliendo la propiedad de autocorrelación ideal de los códigos PN, como describe Sklar.
 
 ---
@@ -35,6 +37,8 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - **Consigna:** Calcular y graficar la DSP de la secuencia.
 - **Resultado:** El script `1_dsp.py` generó la gráfica `1_dsp.png` y el análisis en `1_dsp.txt`.
 - **Gráfico:** ![DSP](1_dsp.png)
+- **Conclusión teórica (Sklar):**
+  Según Sklar, la Densidad Espectral de Potencia (DSP) de una secuencia PN máxima (m-sequence) es casi plana, pero no perfectamente plana. Esto se debe a que la secuencia PN es determinística y periódica, no completamente aleatoria. Por eso, en la DSP aparece un pico dominante en la frecuencia cero (DC) o en múltiplos del inverso del período, dependiendo de cómo se codifique la secuencia (por ejemplo, si se usa 0/1 o -1/+1). Si la secuencia no está perfectamente balanceada (por ejemplo, hay un 1 más que ceros), aparece un pico en DC. Incluso con balance perfecto, la periodicidad introduce componentes espectrales discretos. La DSP es casi plana, pero siempre hay un pico grande debido a la periodicidad y el (leve) desbalance de la secuencia.
 - **Conclusión:** El espectro obtenido es relativamente plano, confirmando la apariencia de ruido blanco de la secuencia PN, en línea con la teoría.
 
 ---
@@ -51,6 +55,11 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - **Consigna:** Verificar la propiedad de corridas (distribución de secuencias de unos y ceros consecutivos).
 - **Resultado:** El script `1_corridas.py` generó el análisis en `1_corridas.txt` y la gráfica `1_corridas_histograma.png`.
 - **Gráfico:** ![Corridas](1_corridas_histograma.png)
+- **Conclusión teórica (Sklar):**
+  Según Sklar, para una secuencia PN máxima de longitud N = 2^n - 1:
+  - El número total de corridas es aproximadamente la mitad de la longitud de la secuencia.
+  - La cantidad de corridas de longitud 1 (corridas de un solo bit) debería ser aproximadamente igual a la cantidad de corridas de longitud máxima.
+  - Por ejemplo, para una secuencia de 63 bits (n=6), deberías tener aproximadamente 32 corridas en total, y la cantidad de corridas de longitud 1 debería ser cercana a 16 (la mitad de 32).
 - **Conclusión:** La distribución de corridas observada coincide con la esperada teóricamente para códigos PN, cumpliendo la propiedad de corridas.
 
 ---
