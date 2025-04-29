@@ -18,6 +18,7 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - **Consigna:** Analizar la secuencia generada y calcular su período.
 - **Resultado:** El script `1_periodo.py` determinó correctamente el período de la secuencia PN generada. El resultado se encuentra en `1_periodo.txt`.
 - **Gráfico:** ![Secuencia PN](1_pn_sequence.png)
+- **Explicación:** En los códigos PN, el período es igual al largo de la secuencia generada porque esta es una propiedad fundamental de los códigos PN: un LFSR de longitud n produce una secuencia máxima de período $2^n-1$, y la secuencia se repite exactamente después de ese número de bits.
 - **Conclusión:** El período coincide con el valor teórico esperado para un LFSR de la longitud utilizada, verificando la propiedad de periodicidad de los códigos PN.
 
 ---
