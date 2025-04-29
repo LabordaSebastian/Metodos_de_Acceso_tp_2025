@@ -35,7 +35,7 @@ with open('1_pn_sequence.txt', 'w') as f:
 
 # Graficar la secuencia generada
 plt.figure(figsize=(12,2))
-plt.stem(range(1, periodo+1), secuencia, basefmt=" ", use_line_collection=True)
+plt.stem(range(1, periodo+1), secuencia, basefmt=" ")
 plt.title('Secuencia PN generada (63 bits)')
 plt.xlabel('Índice')
 plt.ylabel('Valor')
