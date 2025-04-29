@@ -1,0 +1,4 @@
+Se graficó la autocorrelación de la secuencia PN para 3 períodos.
+La autocorrelación muestra un pico principal en el origen y valores bajos en los demás desplazamientos,
+lo que es característico de las secuencias PN y las hace útiles para sincronización y espectro ensanchado.
+Ver gráfico en 1_autocorrelacion.png.

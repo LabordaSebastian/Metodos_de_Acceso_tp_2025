@@ -1,0 +1,4 @@
+Propiedad de Balance en la secuencia PN:
+Cantidad de unos: 32
+Cantidad de ceros: 31
+La secuencia CUMPLE la propiedad de balance: hay un uno más que ceros.

@@ -1,0 +1,4 @@
+Período de la secuencia PN: 63
+Secuencia analizada: 63 bits
+
+Nota: Para una m-secuencia PN correctamente generada, el período es igual a la longitud de la secuencia, ya que solo se repite después de recorrer todos sus valores posibles.

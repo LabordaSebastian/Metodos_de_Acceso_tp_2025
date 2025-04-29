@@ -1,0 +1,4 @@
+Se graficó la Densidad Espectral de Potencia (DSP) de la secuencia PN.
+La DSP muestra un espectro relativamente plano, lo que indica que la secuencia PN tiene características similares al ruido blanco,
+lo que es deseable en aplicaciones de espectro ensanchado.
+Ver gráfico en 1_dsp.png.

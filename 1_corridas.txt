@@ -1,0 +1,11 @@
+Propiedad de Corridas en la secuencia PN:
+Longitud | Corridas de unos | Corridas de ceros
+       1 |                8 |                 8
+       2 |                4 |                 4
+       3 |                2 |                 2
+       4 |                1 |                 1
+       5 |                0 |                 1
+       6 |                1 |                 0
+
+Según la teoría, la cantidad de corridas de longitud n debería ser aproximadamente la mitad de las de longitud n-1.
+El número de corridas de unos y ceros debe ser casi igual.
