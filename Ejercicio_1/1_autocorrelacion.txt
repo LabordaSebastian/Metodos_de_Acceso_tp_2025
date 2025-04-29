@@ -1,4 +1,11 @@
-Se graficó la autocorrelación de la secuencia PN para 3 períodos.
-La autocorrelación muestra un pico principal en el origen y valores bajos en los demás desplazamientos,
-lo que es característico de las secuencias PN y las hace útiles para sincronización y espectro ensanchado.
-Ver gráfico en 1_autocorrelacion.png.
+Autocorrelación Periódica de la secuencia PN
+===========================================
+
+Longitud de la secuencia (N): 63
+Valor teórico R(0): 63
+Valor teórico R(τ) para τ≠0: -1
+
+Valores obtenidos:
+R(0) = 63.0
+R(τ) promedio para otros τ: -0.03
+Desviación estándar de R(τ) para otros τ: 7.82
