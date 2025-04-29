@@ -18,7 +18,7 @@ lags = np.arange(-len(secuencia_3periodos)+1, len(secuencia_3periodos))
 
 # Graficar
 plt.figure(figsize=(10,5))
-plt.stem(lags, autocorr, use_line_collection=True)
+plt.stem(lags, autocorr)
 plt.title('Autocorrelación de la secuencia PN (3 períodos)')
 plt.xlabel('Desplazamiento (lag)')
 plt.ylabel('Autocorrelación')
