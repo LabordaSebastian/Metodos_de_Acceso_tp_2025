@@ -1,3 +1,7 @@
+"""
+Densidad Espectral de Potencia (DSP):
+La DSP describe cómo se distribuye la potencia de una señal en función de la frecuencia. En códigos PN, una DSP relativamente plana indica que la secuencia tiene características similares al ruido blanco, lo que es deseable para aplicaciones de espectro ensanchado y reducción de interferencias.
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 

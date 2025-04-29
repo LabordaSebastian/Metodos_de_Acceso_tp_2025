@@ -1,4 +1,15 @@
+"""
+Características fundamentales de los códigos PN (Pseudo-Noise):
+- Son secuencias binarias que aparentan ser aleatorias pero son generadas de manera determinística.
+- Tienen un período largo antes de repetirse (máximo para m-secuencias: 2^n - 1).
+- Presentan buena propiedad de balance: casi igual cantidad de unos y ceros.
+- Poseen excelentes propiedades de autocorrelación: pico alto en el origen y valores bajos en otros desplazamientos.
+- Distribución de corridas similar a la de una secuencia aleatoria.
+- Su espectro es relativamente plano, similar al ruido blanco.
+Estas características las hacen útiles en comunicaciones digitales, especialmente en sistemas de espectro ensanchado y CDMA.
+"""
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Parámetros del LFSR
 n = 6  # Número de etapas
@@ -22,4 +33,16 @@ for _ in range(periodo):
 with open('1_pn_sequence.txt', 'w') as f:
     f.write(' '.join(map(str, secuencia)))
 
-print(f"Secuencia PN generada y guardada en 1_pn_sequence.txt ({periodo} bits)") 
+# Graficar la secuencia generada
+plt.figure(figsize=(12,2))
+plt.stem(range(1, periodo+1), secuencia, basefmt=" ", use_line_collection=True)
+plt.title('Secuencia PN generada (63 bits)')
+plt.xlabel('Índice')
+plt.ylabel('Valor')
+plt.yticks([0,1])
+plt.tight_layout()
+plt.savefig('1_pn_sequence.png')
+plt.close()
+
+print(f"Secuencia PN generada y guardada en 1_pn_sequence.txt ({periodo} bits)")
+print("Gráfico de la secuencia guardado en 1_pn_sequence.png") 

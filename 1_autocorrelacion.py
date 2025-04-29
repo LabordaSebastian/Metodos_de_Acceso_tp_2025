@@ -1,3 +1,7 @@
+"""
+Autocorrelación:
+La autocorrelación mide la similitud de una secuencia consigo misma a diferentes desplazamientos (lags). En códigos PN, una buena autocorrelación implica un pico alto en el origen y valores bajos en otros desplazamientos, lo que es fundamental para aplicaciones de sincronización y espectro ensanchado.
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 
