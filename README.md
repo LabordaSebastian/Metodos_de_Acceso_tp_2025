@@ -31,9 +31,12 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - **Consigna:** Graficar la autocorrelación de la secuencia para 3 períodos completos y extraer conclusiones.
 - **Resultado:** El script `1_autocorrelacion.py` generó la gráfica `1_autocorrelacion.png` y el análisis en `1_autocorrelacion.txt`.
 - **Gráfico:** ![Autocorrelación](Ejercicio_1/1_autocorrelacion.png)
-- **Explicación sobre los picos:**
-  Si se grafica la autocorrelación sobre una secuencia que es la repetición de la PN original (por ejemplo, 3 períodos concatenados), entonces la autocorrelación tendrá un pico en cada múltiplo del período, porque la secuencia se alinea consigo misma en esos desplazamientos. Esto es esperable y concuerda con la teoría.
-- **Conclusión:** Se observa un pico principal y valores bajos fuera de fase, cumpliendo la propiedad de autocorrelación ideal de los códigos PN, como describe Sklar.
+- **Explicación teórica:**
+  Para una secuencia PN de longitud N, la función de autocorrelación periódica tiene las siguientes características:
+  - En τ = 0 (y múltiplos del período), R(0) = N, que es el valor máximo
+  - Para cualquier otro desplazamiento τ ≠ 0, R(τ) = -1
+  Esta propiedad es fundamental y hace que las secuencias PN sean ideales para sincronización y detección.
+- **Conclusión:** La autocorrelación obtenida muestra exactamente el comportamiento teórico esperado: un pico de valor N en τ = 0 y valores de -1 para todos los demás desplazamientos, lo que verifica la propiedad de autocorrelación ideal de los códigos PN.
 
 ---
 
@@ -41,9 +44,14 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - **Consigna:** Calcular y graficar la DSP de la secuencia.
 - **Resultado:** El script `1_dsp.py` generó la gráfica `1_dsp.png` y el análisis en `1_dsp.txt`.
 - **Gráfico:** ![DSP](Ejercicio_1/1_dsp.png)
-- **Conclusión teórica (Sklar):**
-  Según Sklar, la Densidad Espectral de Potencia (DSP) de una secuencia PN máxima (m-sequence) es casi plana, pero no perfectamente plana. Esto se debe a que la secuencia PN es determinística y periódica, no completamente aleatoria. Por eso, en la DSP aparece un pico dominante en la frecuencia cero (DC) o en múltiplos del inverso del período, dependiendo de cómo se codifique la secuencia (por ejemplo, si se usa 0/1 o -1/+1). Si la secuencia no está perfectamente balanceada (por ejemplo, hay un 1 más que ceros), aparece un pico en DC. Incluso con balance perfecto, la periodicidad introduce componentes espectrales discretos. La DSP es casi plana, pero siempre hay un pico grande debido a la periodicidad y el (leve) desbalance de la secuencia.
-- **Conclusión:** El espectro obtenido es relativamente plano, confirmando la apariencia de ruido blanco de la secuencia PN, en línea con la teoría.
+- **Explicación teórica:**
+  La DSP de una secuencia PN máxima tiene las siguientes características:
+  - La envolvente sigue una forma de sinc² característica
+  - El ancho del lóbulo principal es inversamente proporcional a N
+  - El espectro está compuesto por líneas discretas separadas por 1/N en frecuencia
+  - La forma de sinc² es consecuencia directa de la forma rectangular de la autocorrelación
+  - La DSP se anula en f=0 porque la secuencia está codificada con valores {-1,+1} y tiene media cero (igual cantidad de unos y menos unos). Esto significa que no hay componente DC en la señal.
+- **Conclusión:** El espectro obtenido muestra claramente la forma de sinc² esperada, con el lóbulo principal centrado en f = 0 y los lóbulos laterales característicos. La gráfica se centró en el rango [-0.1, 0.1] Hz para mejor visualización del lóbulo principal. La ausencia de componente espectral en f=0 confirma el correcto balance de la secuencia.
 
 ---
 
