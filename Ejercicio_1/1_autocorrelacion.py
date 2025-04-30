@@ -54,7 +54,7 @@ valores_resto = np.delete(autocorr, indice_central)  # Todos los demás valores
 print(f"Valor en τ=0: {valores_pico} (debería ser {N})")
 print(f"Valores para otros τ: media={np.mean(valores_resto):.2f}, std={np.std(valores_resto):.2f} (deberían ser -1)")
 
-# Guardar conclusiones en un archivo .txt
+# Guardar conclusiones y valores en un archivo .txt
 with open('1_autocorrelacion.txt', 'w') as f:
     f.write('Autocorrelación Periódica de la secuencia PN\n')
     f.write('===========================================\n\n')
@@ -64,6 +64,12 @@ with open('1_autocorrelacion.txt', 'w') as f:
     f.write('Valores obtenidos:\n')
     f.write(f'R(0) = {valores_pico}\n')
     f.write(f'R(τ) promedio para otros τ: {np.mean(valores_resto):.2f}\n')
-    f.write(f'Desviación estándar de R(τ) para otros τ: {np.std(valores_resto):.2f}\n')
+    f.write(f'Desviación estándar de R(τ) para otros τ: {np.std(valores_resto):.2f}\n\n')
+    f.write('Valores de autocorrelación para DSP:\n')
+    f.write('===================================\n')
+    f.write('Desplazamientos (τ):\n')
+    np.savetxt(f, lags, fmt='%d')
+    f.write('\nValores de autocorrelación R(τ):\n')
+    np.savetxt(f, autocorr, fmt='%.6f')
 
-print('Autocorrelación periódica calculada y graficada (ver 1_autocorrelacion.png). Conclusiones guardadas en 1_autocorrelacion.txt.') 
+print('Autocorrelación periódica calculada y graficada (ver 1_autocorrelacion.png). Conclusiones y valores guardados en 1_autocorrelacion.txt.') 

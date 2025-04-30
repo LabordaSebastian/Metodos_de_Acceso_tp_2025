@@ -1,4 +1,14 @@
-Se graficó la Densidad Espectral de Potencia (DSP) de la secuencia PN.
-La DSP muestra un espectro relativamente plano, lo que indica que la secuencia PN tiene características similares al ruido blanco,
-lo que es deseable en aplicaciones de espectro ensanchado.
-Ver gráfico en 1_dsp.png.
+Densidad Espectral de Potencia (DSP) de la secuencia PN
+===========================================
+
+Longitud de la secuencia (N): 63
+
+Método de cálculo:
+- La DSP se calculó usando el Teorema de Wiener-Khinchin
+- Se utilizó un período de la autocorrelación centrado en 0
+- Frecuencias expresadas en Hz (fc = 1 Hz)
+
+Características de la DSP:
+- La envolvente sigue una forma de sinc² característica
+- El ancho del lóbulo principal es inversamente proporcional a N
+- La gráfica se centró en [-0.1, 0.1] Hz para mejor visualización del lóbulo principal
