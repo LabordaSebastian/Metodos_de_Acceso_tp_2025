@@ -1,0 +1,14 @@
+Análisis de Balance - Secuencia Gold
+========================================
+Longitud total: 63 bits
+• Unos: 32 (50.79%)
+• Ceros: 31 (49.21%)
+Diferencia: 1
+
+Propiedades:
+1. Balance m-secuencia (unos = ceros + 1): ✔
+2. Balance Gold (diferencia ≤ 1): ✔
+
+Notas:
+- Las m-secuencias siempre cumplen la propiedad 1 exactamente
+- Los códigos Gold generalmente cumplen la propiedad 2

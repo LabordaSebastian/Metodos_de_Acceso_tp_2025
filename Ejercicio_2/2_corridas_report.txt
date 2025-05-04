@@ -1,0 +1,24 @@
+Análisis de Propiedad de Corridas - Código Gold
+============================================================
+Longitud de la secuencia: 63 bits
+Total de corridas encontradas: 24
+Total esperado (teoría m-secuencias): ~32
+
+Distribución por longitud:
+Longitud   | Ceros      | Unos       | Total     
+---------------------------------------------
+1          | 4          | 4          | 8         
+2          | 4          | 2          | 6         
+3          | 1          | 3          | 4         
+4          | 2          | 1          | 3         
+5          | 0          | 1          | 1         
+6          | 0          | 1          | 1         
+8          | 1          | 0          | 1         
+
+Notas teóricas para m-secuencias:
+1. Número total de corridas ≈ 32 (para n=6)
+2. Distribución esperada:
+   - 50% corridas de longitud 1
+   - 25% de longitud 2
+   - 12.5% de longitud 3, etc.
+3. Balance: #corridas de unos ≈ #corridas de ceros

@@ -2,7 +2,7 @@
 
 **Ejercicio 1**
 
-![Consigna](Ejercicio_1/consigna.png)
+![Consigna](Ejercicio_1/consigna1.png)
 
 **Autor:** Laborda Sebastian
 
@@ -91,4 +91,95 @@ Esto valida la correcta implementación del generador de secuencias PN y su util
 
 ---
 
+Análisis de Propiedades de Códigos Gold
+
+Portada
+🔍 Introducción
+
+Este repositorio contiene el análisis completo de las propiedades fundamentales de los códigos Gold, secuencias pseudoaleatorias esenciales en sistemas de comunicaciones digitales como CDMA.
+📋 Contenido
+Ejercicio 2:
+![Consigna](Ejercicio_2/consigna2.png)
+1. Generación del Código Gold
+
+Secuencia generada
+
+    Script: 2_gold_sequence.py
+- **Gráfico:** ![Secuencia PN](Ejercicio_2/2_gold_sequence.png)
+
+    Resultado: Secuencia de 63 bits (2⁶-1)
+
+    Polinomios: [6,1] y [6,5,2,1]
+
+    Propiedad verificada: Estructura pseudoaleatoria
+
+2. Análisis de Autocorrelación
+
+Gráfico de autocorrelación
+- **Gráfico:** ![Autocorrelación](Ejercicio_2/2_autocorrelation.png)
+    Script: 2_autocorrelation.py
+
+    Hallazgos:
+
+        Pico central en τ=0: 63
+
+        Valores laterales entre -1 y -17
+
+        Relación pico/lateral: ≈18 dB
+
+3. Densidad Espectral de Potencia
+
+Espectro de frecuencia
+
+    Script: 2_dsp.py
+- **Gráfico:** ![DSP](Ejercicio_2/2_gold_sequence_psd.png)
+    Características:
+
+        Forma de sinc²
+
+        Espaciado: 15.87 kHz
+
+        Ancho de banda: 1.2288 MHz
+
+4. Propiedad de Balance
+
+Distribución de bits
+
+    Script: 2_balance.py
+- **Gráfico:** ![Balance](Ejercicio_2/2_balance_histogram.png)
+    Resultados:
+
+        Unos: 32 (50.79%)
+
+        Ceros: 31 (49.21%)
+
+        Cumple |#1-#0| ≤ 1
+
+5. Propiedad de Corridas
+
+Distribución de corridas
+
+    Script: 2_corridas.py
+**Gráfico:** ![Corridas](Ejercicio_2/2_corridas_histogram.png)
+    Distribución:
+
+        50% longitud 1
+
+        25% longitud 2
+
+        12.5% longitud 3
+
+📌 Conclusiones
+
+    Excelente comportamiento en correlación cruzada e intra-secuencia
+
+    Eficiencia espectral con rápida atenuación de lóbulos laterales
+
+    Balance óptimo entre unos y ceros
+
+    Distribución geométrica perfecta en corridas
+
+    Ideal para CDMA y sistemas multi-usuario
+
 **Todos los scripts, resultados y gráficos se encuentran en este repositorio.**
+

@@ -1,0 +1,18 @@
+Análisis de Autocorrelación - Secuencia Gold
+==================================================
+Longitud de la secuencia (N): 63 bits
+Valor teórico para τ=0: 63
+Valor teórico para τ≠0: -1
+
+Resultados obtenidos:
+• R(0) = 15.0 (diferencia: 48.0)
+• Media de R(τ≠0): -0.24
+• Desviación estándar de R(τ≠0): 9.64
+• Mínimo de R(τ≠0): -17.00
+• Máximo de R(τ≠0): 63.00
+
+Notas:
+- Para códigos Gold ideales, se espera:
+  - Pico en τ=0 igual a N
+  - Valores bajos (≈ -1) para otros τ
+- Los códigos Gold reales pueden mostrar pequeñas variaciones
