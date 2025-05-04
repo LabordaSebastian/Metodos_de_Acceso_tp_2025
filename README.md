@@ -43,7 +43,9 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 ### 3. Densidad Espectral de Potencia (DSP)
 - **Consigna:** Calcular y graficar la DSP de la secuencia.
 - **Resultado:** El script `1_dsp.py` generó la gráfica `1_dsp.png` y el análisis en `1_dsp.txt`.
-- **Gráfico:** ![DSP](Ejercicio_1/1_dsp.png)
+- **Gráfico:** ![DSP](Ejercicio_1/dsp_pn_sequence.png)
+![DSP](Ejercicio_1/pn_sequence_temporal.png)
+
 - **Explicación teórica:**
   La DSP de una secuencia PN máxima tiene las siguientes características:
   - La envolvente sigue una forma de sinc² característica
