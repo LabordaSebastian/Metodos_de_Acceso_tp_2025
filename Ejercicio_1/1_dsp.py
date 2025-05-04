@@ -8,73 +8,75 @@ Referencia: MetAccesoCap3-2022.pdf, Fig 3.6
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Leer la autocorrelación desde el archivo generado por 1_autocorrelacion.py
-with open('1_autocorrelacion.txt', 'r') as f:
-    lines = f.readlines()
-    # Leer N
-    for line in lines:
-        if line.startswith('Longitud de la secuencia (N):'):
-            N = int(line.split(':')[1].strip())
-            break
-    
-    # Buscar la sección de valores de autocorrelación
-    for i, line in enumerate(lines):
-        if line.strip() == 'Valores de autocorrelación R(τ):':
-            # Los valores están en las líneas siguientes
-            valores_autocorr = np.loadtxt(lines[i+1:])
-            break
+# Parámetros
+Rc = 1.2288e6          # Tasa de chip (chips/segundo)
+Tc = 1 / Rc            # Duración de un chip (segundos)
+fs = 10 * Rc           # Frecuencia de muestreo (10 veces Rc para resolución)
+ts = 1 / fs            # Período de muestreo
 
-# Extraer un período centrado en 0 (N puntos)
-centro = len(valores_autocorr) // 2
-inicio = centro - N//2
-fin = inicio + N
-autocorr_periodo = valores_autocorr[inicio:fin]
+# Secuencia PN proporcionada (mapeada a bipolar: 0 -> -1, 1 -> +1)
+pn_sequence = np.array([
+    0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 
+    1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1
+])
+signal_bipolar = 2 * pn_sequence - 1  # Señal bipolar
 
-# Calcular la DSP con más puntos para ver mejor la forma de sinc
-nfft = 1024  # Más puntos para la envolvente
-dsp = np.abs(np.fft.fft(autocorr_periodo, n=nfft))**2
+# --- Señal temporal muestreada (1 período) ---
+# Número de muestras por chip
+samples_per_chip = int(Tc / ts)
+# Repetir cada valor de la secuencia 'samples_per_chip' veces
+signal_sampled = np.repeat(signal_bipolar, samples_per_chip)
+# Crear eje de tiempo
+t = np.arange(0, len(signal_sampled) * ts, ts)
 
-# Calcular frecuencias en Hz (asumiendo frecuencia de chip = 1 Hz)
-fc = 1.0  # Frecuencia de chip en Hz
-freq = np.fft.fftfreq(nfft, d=1/fc)
+# Graficar señal temporal (1 período)
+plt.figure(figsize=(12, 4))
+plt.plot(t, signal_sampled, color='blue')
+plt.title('Señal PN Muestreada en el Tiempo (1 Período)')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud')
+plt.grid(True, linestyle='--')
+plt.xlim(0, len(pn_sequence) * Tc)
+plt.ylim(-1.5, 1.5)
+plt.savefig('pn_sequence_temporal.png', dpi=300, bbox_inches='tight')
+plt.show()
 
-# Reordenar para centrar en cero
-dsp = np.fft.fftshift(dsp)
-freq = np.fft.fftshift(freq)
+# --- Cálculo de la FFT ---
+N = len(signal_sampled)
+fft_result = np.fft.fft(signal_sampled) / N  # Normalizar por N
+freqs = np.fft.fftfreq(N, ts)
+fft_magnitude = np.abs(fft_result)
 
-# Normalizar solo la amplitud
-dsp = dsp/np.max(dsp)
+# Centrar el espectro
+fft_magnitude_shifted = np.fft.fftshift(fft_magnitude)
+freqs_shifted = np.fft.fftshift(freqs)
 
-# Graficar la DSP
-plt.figure(figsize=(12,6))
+# Graficar la magnitud de la FFT (PSD lineal)
+#plt.figure(figsize=(12, 4))
+#plt.plot(freqs_shifted, fft_magnitude_shifted, color='red')
+#plt.title('Espectro de la Señal PN (FFT) - Centrado en Cero')
+#plt.xlabel('Frecuencia (Hz)')
+#plt.ylabel('Magnitud (Lineal)')
+#plt.grid(True, linestyle='--')
+#plt.xlim(-2 * Rc, 2 * Rc)
+#plt.ylim(0, np.max(fft_magnitude_shifted) * 1.1)
+#plt.show()
 
-# Graficar solo la envolvente continua
-plt.plot(freq, dsp, 'b-', linewidth=2, label='Envolvente tipo sinc²')
-
-plt.title('Densidad Espectral de Potencia')
+plt.figure(figsize=(12, 4))
+markerline, stemlines, baseline = plt.stem(
+    freqs_shifted, 
+    fft_magnitude_shifted, 
+    linefmt='b-',          # Líneas rojas continuas
+    markerfmt='bo',        # Marcadores rojos circulares
+    basefmt='k-',          # Línea base negra
+)
+plt.setp(stemlines, linewidth=0.5)  # Grosor de líneas
+plt.setp(markerline, markersize=3)  # Tamaño de marcadores
+plt.title('Espectro de la Señal PN (FFT) - Centrado en Cero')
 plt.xlabel('Frecuencia (Hz)')
-plt.ylabel('|S(f)|²')
-plt.grid(True, alpha=0.3)
-plt.xlim(-0.1*fc, 0.1*fc)
-plt.ylim(-0.1, 1.1)
-plt.legend()
-
-plt.tight_layout()
-plt.savefig('1_dsp.png', dpi=300)
-plt.close()
-
-# Guardar conclusiones
-with open('1_dsp.txt', 'w') as f:
-    f.write('Densidad Espectral de Potencia (DSP) de la secuencia PN\n')
-    f.write('===========================================\n\n')
-    f.write(f'Longitud de la secuencia (N): {N}\n\n')
-    f.write('Método de cálculo:\n')
-    f.write('- La DSP se calculó usando el Teorema de Wiener-Khinchin\n')
-    f.write('- Se utilizó un período de la autocorrelación centrado en 0\n')
-    f.write('- Frecuencias expresadas en Hz (fc = 1 Hz)\n\n')
-    f.write('Características de la DSP:\n')
-    f.write('- La envolvente sigue una forma de sinc² característica\n')
-    f.write('- El ancho del lóbulo principal es inversamente proporcional a N\n')
-    f.write(f'- La gráfica se centró en [-0.1, 0.1] Hz para mejor visualización del lóbulo principal\n')
-
-print('DSP calculada y graficada con frecuencias en Hz (ver 1_dsp.png). Conclusiones guardadas en 1_dsp.txt.') 
+plt.ylabel('Magnitud (Lineal)')
+plt.grid(True, linestyle='--')
+plt.xlim(-2 * Rc, 2 * Rc)
+plt.ylim(0, np.max(fft_magnitude_shifted) * 1.1)
+plt.savefig('dsp_pn_sequence.png', dpi=300, bbox_inches='tight')
+plt.show()
