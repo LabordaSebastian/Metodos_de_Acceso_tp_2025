@@ -116,7 +116,7 @@ Secuencia generada
 2. Análisis de Autocorrelación
 
 Gráfico de autocorrelación
-- **Gráfico:** ![Autocorrelación](Ejercicio_2/2_autocorrelation.png)
+- **Gráfico:** ![Autocorrelación](Ejercicio_2/2_autocorrelation_plot.png)
     Script: 2_autocorrelation.py
 
     Hallazgos:
