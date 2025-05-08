@@ -1,0 +1,14 @@
+Análisis de Balance - Secuencia Kasami
+========================================
+Longitud total: 63 bits
+• Unos: 28 (44.44%)
+• Ceros: 35 (55.56%)
+Diferencia: 7
+
+Propiedades:
+1. Balance m-secuencia (unos = ceros + 1): ✖
+2. Balance Gold (diferencia ≤ 1): ✖
+
+Notas:
+- Las m-secuencias siempre cumplen la propiedad 1 exactamente
+- Los códigos Gold y Kasami generalmente cumplen la propiedad 2

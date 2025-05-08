@@ -1,0 +1,21 @@
+Análisis de Propiedad de Corridas - Secuencia Kasami
+============================================================
+Longitud de la secuencia: 63 bits
+Total de corridas encontradas: 36
+Total esperado (teoría m-secuencias): ~32
+
+Distribución por longitud:
+Longitud   | Ceros      | Unos       | Total     
+---------------------------------------------
+1          | 7          | 11         | 18        
+2          | 6          | 5          | 11        
+3          | 4          | 1          | 5         
+4          | 1          | 1          | 2         
+
+Notas teóricas para m-secuencias:
+1. Número total de corridas ≈ 32 (para n=6)
+2. Distribución esperada:
+   - 50% corridas de longitud 1
+   - 25% de longitud 2
+   - 12.5% de longitud 3, etc.
+3. Balance: #corridas de unos ≈ #corridas de ceros
