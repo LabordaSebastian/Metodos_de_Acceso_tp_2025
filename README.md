@@ -39,6 +39,7 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - **Script:** `1_dsp.py`
 - **Gráficos:**  
   ![DSP](Ejercicio_1/psd_pn_sequence.png)  
+  ![Temporal](Ejercicio_1/pn_sequence_temporal.png)  
 
 - **Explicación:** El espectro muestra la forma sinc² característica, con el lóbulo principal centrado en f = 0 y ausencia de componente DC, confirmando el correcto balance de la secuencia.
 
