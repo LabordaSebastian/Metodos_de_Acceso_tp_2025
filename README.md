@@ -1,4 +1,4 @@
-# Informe: Propiedades de los Códigos PN y Gold
+# Informe: Propiedades de los Códigos PN , Gold y Kasami
 
 **Autor:** Laborda Sebastian
 
@@ -65,7 +65,7 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 ### 1. Generación del Código Gold
 
 - **Script:** `2_gold_sequence.py`
-- **Gráfico:** ![Secuencia Gold](Ejercicio_2/Codigo_gold/Codigo2_gold_sequence.png)
+- **Gráfico:** ![Secuencia Gold](Ejercicio_2/Codigo_gold/2_gold_sequence.png)
 - **Resultado:** Secuencia de 63 bits (2⁶-1) generada con polinomios [6,1] y [6,5,2,1].
 
 ### 2. Autocorrelación
@@ -114,7 +114,7 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 ### 3. Densidad Espectral de Potencia
 
 - **Script:** `2_dsp.py`
-- **Gráfico:** ![DSP](Ejercicio_2/Codigo_kasami/kasami_sequence_dsp.png)
+- **Gráfico:** ![DSP](Ejercicio_2/Codigo_kasami/kasami_sequence_psd.png)
 - **Características:** 
   - Forma de sinc² característica
   - Lóbulo principal centrado en f=0
@@ -170,6 +170,38 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 - No cumplen estrictamente con la propiedad de balance, pero mantienen buenas características espectrales
 - Son especialmente útiles en sistemas CDMA por sus propiedades de correlación cruzada
 - Ofrecen un compromiso entre tamaño de familia y propiedades de correlación
+
+---
+
+## Tabla Comparativa de Propiedades
+
+| Propiedad | Códigos PN | Códigos Gold | Códigos Kasami |
+|-----------|------------|--------------|----------------|
+| **Período** | 63 bits (2⁶-1) | 63 bits (2⁶-1) | 63 bits (2⁶-1) |
+| **Autocorrelación** | - Pico: 63<br>- Laterales: -1<br>- Mejor relación pico/lateral | - Pico: 63<br>- Laterales: -17 a -1<br>- Relación ≈18 dB | - Pico: 63<br>- Laterales: -13 a 9<br>- Relación intermedia |
+| **DSP** | - Sinc² perfecta<br>- BW = 1.2288 MHz<br>- Espaciado: 15.87 kHz | - Sinc² bien definida<br>- BW = 1.2288 MHz<br>- Espaciado: 15.87 kHz | - Sinc² característica<br>- BW ≈ 2/Tc<br>- Espaciado similar |
+| **Balance** | - Unos: 32 (50.79%)<br>- Ceros: 31 (49.21%)<br>- Diferencia: 1 | - Unos: 32 (50.79%)<br>- Ceros: 31 (49.21%)<br>- Diferencia: 1 | - Unos: 28 (44.44%)<br>- Ceros: 35 (55.56%)<br>- Diferencia: 7 |
+| **Corridas** | - 50% long. 1<br>- 25% long. 2<br>- 12.5% long. 3<br>- Distribución ideal | - 50% long. 1<br>- 25% long. 2<br>- 12.5% long. 3<br>- Similar a PN | - 18 corridas long. 1<br>- 11 corridas long. 2<br>- 5 corridas long. 3<br>- 2 corridas long. 4 |
+
+### Resumen de Características Distintivas
+
+1. **Códigos PN:**
+   - Mejor autocorrelación individual
+   - Balance perfecto
+   - Distribución de corridas ideal
+   - Familia pequeña de códigos
+
+2. **Códigos Gold:**
+   - Buena correlación cruzada
+   - Mantiene balance perfecto
+   - Gran familia de códigos
+   - Ideal para sistemas multiusuario
+
+3. **Códigos Kasami:**
+   - Correlación cruzada superior
+   - Balance no estricto
+   - Familia de tamaño intermedio
+   - Mejor para sistemas específicos
 
 ---
 
