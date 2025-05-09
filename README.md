@@ -25,7 +25,7 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 
 - **Script:** `1_periodo.py`
 - **Resultado:** El período de la secuencia PN generada coincide con el valor teórico esperado para un LFSR de la longitud utilizada ($2^n-1$).
-- **Gráfico:** ![Secuencia PN](Ejercicio_1/1_pn_sequence.png)
+- **Gráfico:** ![Secuencia PN](Ejercicio_1/pn_sequence_temporal.png)
 - **Explicación:** Un LFSR de longitud n produce una secuencia máxima de período $2^n-1$, repitiéndose exactamente después de ese número de bits.
 
 ### 2. Autocorrelación
@@ -38,8 +38,8 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 
 - **Script:** `1_dsp.py`
 - **Gráficos:**  
-  ![DSP](Ejercicio_1/dsp_pn_sequence.png)  
-  ![Temporal](Ejercicio_1/pn_sequence_temporal.png)
+  ![DSP](Ejercicio_1/psd_pn_sequence.png)  
+
 - **Explicación:** El espectro muestra la forma sinc² característica, con el lóbulo principal centrado en f = 0 y ausencia de componente DC, confirmando el correcto balance de la secuencia.
 
 ### 4. Propiedad de Balance
