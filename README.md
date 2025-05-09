@@ -174,6 +174,50 @@ Este informe presenta el análisis y verificación de las propiedades fundamenta
 
 ---
 
+## Ejercicio 5: Códigos Walsh-Hadamard
+
+### 1. Generación y Transformada de Walsh-Hadamard
+
+- **Scripts:** 
+  - `5_walsh_hardama_sequence.py` (Generación y WHT)
+  - `5_walsh_hardama_decod.py` (Decodificación)
+- **Gráficos:**
+  ![WHT](Ejercicio_5/walsh_hadamard_transform.png)
+  ![Decodificación](Ejercicio_5/walsh_hadamard_decoded.png)
+
+### 2. Análisis de Resultados
+
+#### Transformada de Walsh-Hadamard (WHT)
+- Se generaron dos secuencias Walsh-Hadamard de orden 10 y 60
+- Se agregó ruido blanco aditivo con varianza 0.1
+- La WHT muestra picos claros en los índices 10 y 60, demostrando la ortogonalidad de los códigos
+- El ruido tiene un impacto mínimo en la detección de las secuencias
+
+#### Decodificación
+- La decodificación aprovecha la propiedad de ortogonalidad de los códigos Walsh-Hadamard
+- Se logra una recuperación exitosa de las señales originales
+- El proceso de decodificación muestra robustez frente al ruido
+- La ortogonalidad permite separar efectivamente las señales multiplexadas
+
+### Conclusiones del Ejercicio 5
+
+1. **Propiedades de Ortogonalidad:**
+   - Los códigos Walsh-Hadamard demuestran una excelente ortogonalidad
+   - La WHT permite una clara identificación de las secuencias incluso en presencia de ruido
+   - Los picos en la transformada corresponden exactamente a los órdenes de las secuencias utilizadas
+
+2. **Rendimiento en Presencia de Ruido:**
+   - El sistema mantiene su efectividad con ruido blanco aditivo de varianza 0.1
+   - La decodificación logra recuperar las señales originales con alta fidelidad
+   - La interferencia entre las secuencias es mínima debido a la ortogonalidad
+
+3. **Aplicabilidad:**
+   - Los resultados validan la utilidad de estos códigos en sistemas de comunicación multiplexados
+   - El método es robusto para aplicaciones prácticas de transmisión de datos
+   - La implementación demuestra ser efectiva tanto en la codificación como en la decodificación
+
+---
+
 ## Tabla Comparativa de Propiedades
 
 | Propiedad | Códigos PN | Códigos Gold | Códigos Kasami |
@@ -217,6 +261,12 @@ A partir del análisis realizado y los resultados obtenidos, se verifica que tan
 - **Propiedad de corridas:** La distribución de corridas se ajusta a la predicción teórica, confirmando la pseudoaleatoriedad de las secuencias.
 - **Códigos Gold:** Presentan excelente comportamiento en correlación cruzada, eficiencia espectral y balance óptimo, siendo ideales para sistemas CDMA y multiusuario.
 - **Códigos Kasami:** Muestran propiedades de correlación superiores, con buena eficiencia espectral, aunque no cumplen estrictamente con la propiedad de balance.
+- **Códigos Walsh-Hadamard:** Demuestran ser excepcionalmente útiles para sistemas de comunicación multiplexados debido a:
+  - Su perfecta ortogonalidad, que permite una clara separación de señales multiplexadas
+  - Robustez frente al ruido blanco aditivo, manteniendo la decodificación efectiva
+  - Eficiencia computacional en su implementación tanto para codificación como decodificación
+  - Capacidad de recuperar señales originales con alta fidelidad incluso en presencia de ruido
+  - Ideal para sistemas CDMA síncronos donde la ortogonalidad es crítica
 
 **Referencias:**  
 Bernard Sklar, *Digital Communications. Fundamentals and Applications*.  
