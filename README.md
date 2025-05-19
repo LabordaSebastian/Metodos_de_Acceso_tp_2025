@@ -1,4 +1,4 @@
-# Informe: Propiedades de los Códigos PN , Gold y Kasami
+# Informe: Propiedades de los Códigos PN , Gold , Kasami y Walsh-Hardama
 
 **Autor:** Laborda Sebastian
 
