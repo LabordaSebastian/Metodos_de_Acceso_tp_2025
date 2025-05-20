@@ -6,7 +6,7 @@
 
 ## Introducción
 
-Este informe presenta el análisis y verificación de las propiedades fundamentales de los códigos PN (Pseudo-Noise) y Gold, utilizando como referencia principal el libro **"Digital Communications. Fundamentals and Applications" de Bernard Sklar**. Se implementaron scripts en Python para generar y analizar secuencias, evaluando sus características estadísticas y espectrales.
+Este informe presenta el análisis y verificación de las propiedades fundamentales de los códigos PN (Pseudo-Noise) y Gold, utilizando como referencia principal el libro **"Digital Communications. Fundamentals and Applications" de Bernard Sklar**.Ademas se compararon con otros dos codigos mas, Kasami y Walsh-Hadamard.Se implementaron scripts en Python para generar y analizar secuencias, evaluando sus características estadísticas y espectrales.
 
 ## Bibliografía principal
 
